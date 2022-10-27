@@ -1,11 +1,11 @@
 public class CreditPaymentService {
-    //вводим переменные, где y - срок кредита в годах, s - сумма кредита
-    // r - 0,008325 - ежемесячная кредитная ставка рассчитывается = 9,99/100/12
+    //вводим переменные, где creditPeriodYears - срок кредита в годах, amount - сумма кредита
+    // rate - 0,008325 - ежемесячная кредитная ставка рассчитывается = 9,99/100/12
     //рассчитываем ежемесячный платеж по формуле
-    //P=S*(R*(1+R)^Y*12)/((1+R)^Y*12-1)
-    public double calculate(int y, int s){
+    //Payment=amountOfCredit*(rate*(1+rate)^creditPeriodYears*12)/((1+rate)^creditPeriodYears*12-1)
+    public double calculate(int creditPeriodYears, int amount) {
         double result;
-        result = s*(0.008325*Math.pow(1+0.008325,y*12))/(Math.pow(1+0.008325,y*12)-1);
+        result = amount * (0.008325 * Math.pow(1 + 0.008325, creditPeriodYears * 12)) / (Math.pow(1 + 0.008325, creditPeriodYears * 12) - 1);
         return result;
     }
 }
